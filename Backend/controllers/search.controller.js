@@ -16,7 +16,7 @@ export const searchPerson = async (req, res) => {
     await User.findByIdAndUpdate(req.user._id, {
       $push: {
         searchHistory: {
-          id: response.results[0].id,
+          id: Math.floor(Math.random() * 999999),
           image: response.results[0].profile_path,
           title: response.results[0].name,
           searchType: "person",
@@ -47,7 +47,7 @@ export const searchMovie = async (req, res) => {
     await User.findByIdAndUpdate(req.user._id, {
       $push: {
         searchHistory: {
-          id: response.results[0].id,
+          id: Math.floor(Math.random() * 999999),
           name: response.results[0].title,
           image: response.results[0].poster_path,
           searchType: "movie",
@@ -78,7 +78,7 @@ export const searchTv = async (req, res) => {
     await User.findByIdAndUpdate(req.user._id, {
       $push: {
         searchHistory: {
-          id: response.results[0].id,
+          id: Math.floor(Math.random() * 999999),
           name: response.results[0].name,
           image: response.results[0].poster_path,
           searchType: "tv",
@@ -98,7 +98,7 @@ export const getSearchHistory = async (req, res) => {
   try {
     res.status(200).json({
       success: true,
-      content: req.user.searchHistory,
+      history: req.user.searchHistory,
     });
   } catch (error) {
     console.log("Error in getSearchHistory controller: " + error.message);

@@ -6,9 +6,13 @@ import { LogOut, Menu, Search } from "lucide-react";
 
 import { authUser } from "../store/authUser";
 
+import { useContentType } from "../store/content";
+
 const Navbar = () => {
   const [show, setShow] = useState(false);
   const { user, logOut } = authUser();
+  const { setContentType } = useContentType();
+
   return (
     <header className="max-w-6xl mx-auto flex justify-between items-center p-4 h-20 flex-wrap">
       <div className="flex items-center gap-10 z-50">
@@ -18,20 +22,28 @@ const Navbar = () => {
 
         {/* Desktop Navbar  */}
         <div className="hidden sm:flex gap-4 items-center">
-          <Link to={"/"} className="hover:underline underline-offset-2">
+          <Link
+            to={"/"}
+            className="hover:underline underline-offset-2"
+            onClick={() => setContentType("movie")}
+          >
             Movies
           </Link>
-          <Link to={"/"} className="hover:underline underline-offset-2">
+          <Link
+            to={"/"}
+            className="hover:underline underline-offset-2"
+            onClick={() => setContentType("tv")}
+          >
             TV Shows
           </Link>
-          <Link to={"/"} className="hover:underline underline-offset-2">
+          <Link to={"/history"} className="hover:underline underline-offset-2">
             Search History
           </Link>
         </div>
       </div>
 
       <div className="flex gap-2 md:gap-4 items-center z-50">
-        <Link to={"/"}>
+        <Link to={"/search"}>
           <Search className="size-6 cursor-pointer" />
         </Link>
         <img
@@ -50,33 +62,39 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Navbar */}
-      <div
-        className={`w-full sm:hidden mt-4 rounded z-50 bg-black border ${
-          show ? "opacity-100" : "opacity-0"
-        } transition-all duration-200 border-gray-800`}
-      >
-        <Link
-          to={"/"}
-          className="hover:underline block p-2 underline-offset-2"
-          onClick={() => setShow(!show)}
+      {show && (
+        <div
+          className={`w-full sm:hidden mt-4 rounded z-50 bg-black border transition-all duration-200 border-gray-800`}
         >
-          Movies
-        </Link>
-        <Link
-          to={"/"}
-          className="hover:underline block p-2 underline-offset-2"
-          onClick={() => setShow(!show)}
-        >
-          TV Shows
-        </Link>
-        <Link
-          to={"/"}
-          className="hover:underline block p-2 underline-offset-2"
-          onClick={() => setShow(!show)}
-        >
-          Search History
-        </Link>
-      </div>
+          <Link
+            to={"/"}
+            className="hover:underline block p-2 underline-offset-2"
+            onClick={() => {
+              setShow(!show);
+              setContentType("movie");
+            }}
+          >
+            Movies
+          </Link>
+          <Link
+            to={"/"}
+            className="hover:underline block p-2 underline-offset-2"
+            onClick={() => {
+              setShow(!show);
+              setContentType("tv");
+            }}
+          >
+            TV Shows
+          </Link>
+          <Link
+            to={"/history"}
+            className="hover:underline block p-2 underline-offset-2"
+            onClick={() => setShow(!show)}
+          >
+            Search History
+          </Link>
+        </div>
+      )}
     </header>
   );
 };

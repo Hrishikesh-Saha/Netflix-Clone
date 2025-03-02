@@ -67,7 +67,7 @@ const AuthScreen = () => {
 
       {/* 1st Section: */}
       <div className="py-10 bg-black text-white">
-        <div className="max-w-6xl px-4 md:px-2 flex flex-col md:flex-row mx-auto justify-center items-center">
+        <div className="max-w-6xl px-4 sm:px-6 lg:px-2 flex flex-col md:flex-row mx-auto justify-center items-center">
           <div className="left md:text-left text-center flex-1 ">
             <h2 className="font-extrabold text-4xl md:text-5xl mb-4">
               Enjoy on your TV
@@ -97,7 +97,7 @@ const AuthScreen = () => {
 
       {/* 2nd Section: */}
       <div className="py-10 text-white bg-black">
-        <div className="max-w-6xl mx-auto flex justify-center items-center md:flex-row flex-col-reverse px-4 md:px-2">
+        <div className="max-w-6xl mx-auto flex justify-center items-center md:flex-row flex-col-reverse px-4 sm:px-6 lg:px-2">
           <div className="left flex-1">
             <div className="relative">
               <img src={StarngerThingsLg} alt="missing" className="mt-4" />
@@ -138,7 +138,7 @@ const AuthScreen = () => {
 
       {/* 3rd Section: */}
       <div className="py-10 bg-black text-white">
-        <div className="max-w-6xl px-4 md:px-2 flex flex-col md:flex-row mx-auto justify-center items-center">
+        <div className="max-w-6xl px-4 sm:px-6 lg:px-2 flex flex-col md:flex-row mx-auto justify-center items-center">
           <div className="left md:text-left text-center flex-1 ">
             <h2 className="font-extrabold text-4xl md:text-5xl mb-4">
               Watch everywhere
@@ -172,7 +172,7 @@ const AuthScreen = () => {
 
       {/* 4th Section: */}
       <div className="py-10 bg-black text-white">
-        <div className="flex flex-col-reverse items-center justify-center md:flex-row max-w-6xl px-4 md:px-2 mx-auto ">
+        <div className="flex flex-col-reverse sm:px-6 items-center justify-center md:flex-row max-w-6xl px-4 lg:px-2 mx-auto ">
           <div className="left flex-1 mt-4">
             <img src="/kids.png" alt="missing" />
           </div>
