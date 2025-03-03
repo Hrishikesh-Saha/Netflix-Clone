@@ -38,9 +38,9 @@
   );
   content: "";
   position: absolute;
-  bottom : -10vw;
+  bottom : 0vw;
   left : 10vw;
   right: 10vw;
-  top: -10vw;
+  top: 0vw;
   z-index: -1;
 }
