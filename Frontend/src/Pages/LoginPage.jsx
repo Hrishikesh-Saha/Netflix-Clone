@@ -7,7 +7,7 @@ import Logo from "/notflix-logo.png";
 import { authUser } from "../store/authUser";
 
 const LoginPage = () => {
-  const {login} = authUser();
+  const { login, isLoggingIn } = authUser();
   const [show, setShow] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
@@ -16,7 +16,7 @@ const LoginPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    login(formData)
+    login(formData);
   };
 
   return (
@@ -81,7 +81,7 @@ const LoginPage = () => {
             </div>
 
             <button className="text-white font-semibold transition-all duration-300 cursor-pointer rounded-md w-full py-2 bg-red-600 hover:bg-red-700">
-              Login
+              {isLoggingIn ? "Logging in..." : "Login"}
             </button>
           </form>
 

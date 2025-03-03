@@ -9,14 +9,13 @@ import Logo from "/notflix-logo.png";
 import { Eye, EyeOff } from "lucide-react";
 
 const SignUpPage = () => {
-
-  const {signUp} = authUser()
+  const { signUp, isSigningUp } = authUser();
 
   const [show, setShow] = useState(false);
   const [show2, setShow2] = useState(false);
 
   const { searchParams } = new URL(document.location);
-  const emailValue = searchParams.get("email")
+  const emailValue = searchParams.get("email");
 
   const [formData, setFormData] = useState({
     username: "",
@@ -25,10 +24,9 @@ const SignUpPage = () => {
     confirmPassword: "",
   });
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    signUp(formData)
+    signUp(formData);
   };
 
   return (
@@ -139,7 +137,7 @@ const SignUpPage = () => {
             </div>
 
             <button className="text-white font-semibold transition-all duration-300 cursor-pointer rounded-md w-full py-2 bg-red-600 hover:bg-red-700">
-              Sign Up
+              {isSigningUp ? "Signing Up..." : "Sign Up"}
             </button>
           </form>
 
