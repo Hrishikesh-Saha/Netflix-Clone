@@ -55,8 +55,6 @@ const HistoryPage = () => {
     }
   };
 
-  console.log(searchHistory);
-
   if (searchHistory.length === 0) {
     return (
       <div className="bg-black min-h-screen text-white">
